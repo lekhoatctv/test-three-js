@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Model Viewer</title>
+</head>
+
+<body>
+  <div id="app">
+    <canvas id="three-canvas"></canvas>
+    <div id="tooltip" class="tooltip">
+      <h3>Mô hình chó 3D</h3>
+      <p>Di chuyển chuột để xoay model</p>
+      <p>Lăn chuột để thu phóng</p>
+      <p>Click vào các điểm xanh để xem thông tin chi tiết</p>
+    </div>
+
+    <div id="hotspot-buttons">
+      <button class="hotspot-btn" data-target="dog">🐕 Xem Con Chó</button>
+      <button class="hotspot-btn" data-target="pc">💻 Xem Bộ PC</button>
+      <button class="hotspot-btn" data-target="rauma">🥗 Xem Tô Rau Má</button>
+      <button class="reset-btn" id="reset-view">🔄 Quay lại</button>
+    </div>
+
+    <div id="info-panel" class="info-panel hidden">
+      <button class="close-btn" id="close-panel">×</button>
+      <div id="panel-content"></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
