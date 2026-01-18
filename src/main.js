@@ -49,10 +49,16 @@ const pointLight = new THREE.PointLight(0xffffff, 0.5)
 pointLight.position.set(-5, 5, -5)
 scene.add(pointLight)
 
-// Thêm sàn
+// Thêm sàn với texture domixi
+const textureLoader = new THREE.TextureLoader()
+const domixiTexture = textureLoader.load('/models/domixi-1.jpg')
+domixiTexture.wrapS = THREE.RepeatWrapping
+domixiTexture.wrapT = THREE.RepeatWrapping
+domixiTexture.repeat.set(2, 2)
+
 const floorGeometry = new THREE.PlaneGeometry(10, 10)
 const floorMaterial = new THREE.MeshStandardMaterial({
-  color: 0xcccccc,
+  map: domixiTexture,
   roughness: 0.8,
   metalness: 0.2
 })
@@ -341,6 +347,7 @@ function showInfo(type) {
       <p><strong>Đặc điểm:</strong> Có nốt ruồi trên mặt</p>
       <p><strong>Sở trường:</strong> Móc ví</p>
       <p><strong>Bạn thân:</strong> Ram bộ</p>
+      <p><strong>Sở thích:</strong> Thích nghe nhạc "Độ ta không độ tày"</p>
       <p><strong>Chế độ ăn:</strong> Được nuôi bằng kem Mixue và bã mía đè tem khô gà loại 1</p>
       <p><strong>Đặc quyền:</strong> Thi thoảng còn được uống trà từ tay</p>
       <p><strong>Sứ mệnh:</strong> Canh chừng ngôi mộ kim châm, trên đó cỏ mọc xum xuê vì một tương lai cao bằng bộ PC</p>
