@@ -49,16 +49,10 @@ const pointLight = new THREE.PointLight(0xffffff, 0.5)
 pointLight.position.set(-5, 5, -5)
 scene.add(pointLight)
 
-// Thêm sàn với texture domixi
-const textureLoader = new THREE.TextureLoader()
-const domixiTexture = textureLoader.load('/models/domixi-1.jpg')
-domixiTexture.wrapS = THREE.RepeatWrapping
-domixiTexture.wrapT = THREE.RepeatWrapping
-domixiTexture.repeat.set(2, 2)
-
+// Thêm sàn
 const floorGeometry = new THREE.PlaneGeometry(10, 10)
 const floorMaterial = new THREE.MeshStandardMaterial({
-  map: domixiTexture,
+  color: 0xcccccc,
   roughness: 0.8,
   metalness: 0.2
 })
@@ -340,39 +334,41 @@ function showInfo(type) {
 
   if (type === 'dog') {
     content.innerHTML = `
-      <h2>🐕 Thông Tin Con Chó</h2>
-      <p><strong>Giống:</strong> Chó Tày</p>
-      <p><strong>Chủ nhân:</strong> Ộ i i bị lộ bikini</p>
-      <p><strong>Địa chỉ:</strong> 120 Ang Liễn</p>
-      <p><strong>Đặc điểm:</strong> Có nốt ruồi trên mặt</p>
-      <p><strong>Sở trường:</strong> Móc ví</p>
-      <p><strong>Bạn thân:</strong> Ram bộ</p>
-      <p><strong>Sở thích:</strong> Thích nghe nhạc "Độ ta không độ tày"</p>
-      <p><strong>Chế độ ăn:</strong> Được nuôi bằng kem Mixue và bã mía đè tem khô gà loại 1</p>
-      <p><strong>Đặc quyền:</strong> Thi thoảng còn được uống trà từ tay</p>
-      <p><strong>Sứ mệnh:</strong> Canh chừng ngôi mộ kim châm, trên đó cỏ mọc xum xuê vì một tương lai cao bằng bộ PC</p>
+      <h2>Thông Tin Pet</h2>
+      <p><strong>Giống:</strong> Golden Retriever</p>
+      <p><strong>Tuổi:</strong> 3 năm</p>
+      <p><strong>Tên:</strong> Lucky</p>
+      <p><strong>Màu lông:</strong> Vàng kim</p>
+      <p><strong>Cân nặng:</strong> 30 kg</p>
+      <p><strong>Tính cách:</strong> Thân thiện, năng động</p>
+      <p><strong>Sở thích:</strong> Chơi đùa, chạy bộ</p>
+      <p><strong>Chế độ ăn:</strong> Thức ăn chuyên dụng cho chó</p>
+      <p><strong>Sức khỏe:</strong> Tốt, tiêm phòng đầy đủ</p>
+      <p><strong>Đặc điểm:</strong> Thông minh, dễ huấn luyện</p>
     `
   } else if (type === 'pc') {
     content.innerHTML = `
-      <h2>💻 Thông Tin Bộ PC</h2>
-      <p><strong>Nơi lắp ráp:</strong> Xưởng 120 Ang Liễn</p>
-      <p><strong>Tọa lạc tại:</strong> Raumania</p>
-      <p><strong>Giá trị:</strong> 36 triệu VNĐ</p>
-      <p><strong>Nguồn năng lượng:</strong> Chạy bằng năng lượng rau má</p>
-      <p><strong>Sức mạnh:</strong> Sức mạnh của 12 đôi dép</p>
-      <p><strong>Đặc biệt:</strong> Là mục tiêu phấn đấu của con chó canh mộ</p>
+      <h2>Thông Tin Máy Tính</h2>
+      <p><strong>CPU:</strong> Intel Core i7-12700K</p>
+      <p><strong>RAM:</strong> 32GB DDR5</p>
+      <p><strong>GPU:</strong> NVIDIA RTX 4070</p>
+      <p><strong>SSD:</strong> 1TB NVMe Gen4</p>
+      <p><strong>Nguồn:</strong> 750W 80+ Gold</p>
+      <p><strong>Case:</strong> Mid Tower ATX với RGB</p>
+      <p><strong>Công dụng:</strong> Gaming, đồ họa, lập trình</p>
+      <p><strong>Hệ điều hành:</strong> Windows 11 Pro</p>
     `
   } else if (type === 'rauma') {
     content.innerHTML = `
-      <h2>🥗 Thông Tin Tô Rau Má</h2>
-      <p><strong>Món ăn:</strong> Rau má ở Hoa Thanh Quế</p>
-      <p><strong>Công ty sản xuất:</strong> Hoa Kì Food</p>
-      <p><strong>Cách sản xuất:</strong> Phá đường tàu</p>
-      <p><strong>Chăm sóc bằng:</strong> Shisa</p>
-      <p><strong>Người chăm sóc:</strong> Tá Senu aka Khả Seni</p>
-      <p><strong>Giá trị dinh dưỡng:</strong> Chứa đủ năng lượng để chạy 1 bộ PC trong 36h</p>
-      <p><strong>Hương vị:</strong> Thanh Hóa mảnh đất anh hùng</p>
-      <p><strong>Đặc biệt:</strong> 12 đôi dép mất cùng 1 đêm</p>
+      <h2>Thông Tin Món Ăn</h2>
+      <p><strong>Tên món:</strong> Rau má</p>
+      <p><strong>Loại:</strong> Thức uống giải khát</p>
+      <p><strong>Thành phần:</strong> Rau má tươi, đường, đá</p>
+      <p><strong>Nguồn gốc:</strong> Việt Nam</p>
+      <p><strong>Giá trị dinh dưỡng:</strong> Giàu vitamin C, kali</p>
+      <p><strong>Công dụng:</strong> Giải nhiệt, thanh lọc cơ thể</p>
+      <p><strong>Hương vị:</strong> Thanh mát, dễ uống</p>
+      <p><strong>Calo:</strong> Khoảng 50-70 kcal/cốc</p>
     `
   }
 
